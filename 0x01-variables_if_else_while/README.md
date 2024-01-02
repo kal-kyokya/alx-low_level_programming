@@ -1,0 +1,1 @@
+This directory will hold all files related to the "C - Variables, if, else, while" project.
