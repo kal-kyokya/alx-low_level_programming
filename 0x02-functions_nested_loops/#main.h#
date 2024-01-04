@@ -1,0 +1,6 @@
+11;rgb:0000/0000/0000#ifndef MAIN_H
+#define MAIN_H
+
+int _putchar(char c);
+
+#endif
