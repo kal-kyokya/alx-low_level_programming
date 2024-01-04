@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *print_alphabet - Print all 26 lowercases on 10 lines.
+ *print_alphabet_x10 - Print all 26 lowercases on 10 lines.
  *
  *Return: None.
  */
