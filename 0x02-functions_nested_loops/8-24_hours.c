@@ -12,7 +12,7 @@ void jack_bauer(void)
 	hr1 = hr2 = min1 = min2 = 0;
 	while (hr1 < 3)
 	{
-		while (hr2 < 4)
+		while (hr2 < 9)
 		{
 			while (min1 < 6)
 			{
@@ -30,6 +30,8 @@ void jack_bauer(void)
 				min1++;
 			}
 			min1 = 0;
+			if (hr1 == 2 && hr2 == 3)
+				break;
 			hr2++;
 		}
 		hr2 = 0;
