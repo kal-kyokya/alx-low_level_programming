@@ -7,16 +7,20 @@
  */
 int main(void)
 {
-	int counter, a, b, c;
+	long int counter, a, b, c;
 
 	a = 1;
 	b = 2;
 	c = a + b;
+	printf("%ld, %ld ", a, b);
 	counter = 0;
 	while (counter < 48)
 	{
 		c = a + b;
-		printf("%d, ", c);
+		if (counter != 47)
+			printf("%ld, ", c);
+		else
+		  printf("%ld\n", c);
 		a = b;
 		b = c;
 		counter++;
