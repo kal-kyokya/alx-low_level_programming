@@ -29,7 +29,7 @@ void print_to_98(int x)
 	}
 	else if (x > 98)
 	{
-		while (x > 99)
+		while (x >= 98)
 		{
 			printf("%d", x);
 			if (x > 98)
