@@ -28,7 +28,7 @@ int is_prime_number(int x)
  */
 int helper_function(int input, int counter)
 {
-  if (((input / counter) == 1) && ((input % counter) == 0))
+	if (((input / counter) == 1) && ((input % counter) == 0))
 		return (1);
 	return (helper_function(input, counter + 1));
 }
