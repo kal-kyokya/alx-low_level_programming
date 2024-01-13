@@ -4,6 +4,7 @@
 
 /**
  *positive_or_negative - Define a number as positive or negative.
+ *@n: Number to be evaluated.
  *
  *Return: 0 if program runs successfully
  */
