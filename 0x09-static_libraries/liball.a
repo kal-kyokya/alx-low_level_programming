@@ -21,6 +21,11 @@
 main.c/         0           0     0     644     142       `
 #include "main.h"
 
+/**
+*main - Entry point to the function.
+*
+*Return: 0 if program runs successfully.
+*/
 int main(void)
 {
 	_puts("\"At the end of the day, my goal was to be the best hacker\"\n\t- Kevin Mitnick");
