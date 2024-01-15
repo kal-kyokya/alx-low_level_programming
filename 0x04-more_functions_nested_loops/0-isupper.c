@@ -11,7 +11,7 @@ int _isupper(char x)
 	char c;
 
 	c = 'A';
-	while (c < 'Z')
+	while (c <= 'Z')
 	{
 		if (x == c)
 			return (1);
