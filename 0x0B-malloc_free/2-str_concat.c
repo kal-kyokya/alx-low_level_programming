@@ -13,8 +13,10 @@ char *str_concat(char *s1, char *s2)
 	char *s;
 	int sl1, sl2, sl, counter;
 
-	if ((s1 == NULL) || (s2 == NULL))
-		return (NULL);
+	if (s1 == NULL)
+		s1 = "";
+	else if (s2 == NULL)
+		s2 = "";
 	sl1 = sl2 = 0;
 	while (*(s1 + sl1) != '\0')
 		sl1 += 1;
@@ -24,6 +26,8 @@ char *str_concat(char *s1, char *s2)
 	s = (char *)malloc((sl * sizeof(char)));
 	if (s == NULL)
 		return (NULL);
+	else if (sl == 1)
+		return (s);
 	counter = 0;
 	while (counter < sl1)
 	{
