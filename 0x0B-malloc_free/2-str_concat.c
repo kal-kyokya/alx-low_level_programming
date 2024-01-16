@@ -27,7 +27,9 @@ char *str_concat(char *s1, char *s2)
 	if (s == NULL)
 		return (NULL);
 	else if (sl == 1)
-		return (s);
+	{
+		return (0);
+	}
 	counter = 0;
 	while (counter < sl1)
 	{
