@@ -10,39 +10,26 @@
  */
 int main(int argc, char *argv[])
 {
-	int a[10];
-	int counter;
+	int a, input, counter1;
 
-	a[0] = atoi(argv[1]) % 25;
-	a[1] = atoi(argv[1]) % 10;
-	a[2] = atoi(argv[1]) % 5;
-	a[3] = atoi(argv[1]) % 2;
-	a[4] = atoi(argv[1]) % 1;
-	a[5] = atoi(argv[1]) / 25;
-	a[6] = atoi(argv[1]) / 10;
-	a[7] = atoi(argv[1]) / 5;
-	a[8] = atoi(argv[1]) / 2;
-	a[9] = atoi(argv[1]) / 1;
-	counter = 0;
-	if (argc <= 1)
+	if (argc != 2)
 	{
 		printf("Error\n");
-		return (0);
+		return (1);
 	}
-	else if (atoi(argv[1]) < 0)
+	input = atoi(argv[1]);
+	counter1 = input / 25;
+	a = atoi(argv[1]) % 25;
+	counter1 += (a / 10);
+	a %= 10;
+	counter1 += (a / 5);
+	a %= 5;
+	counter1 += (a / 2);
+	a %= 2;
+	counter1 += (a / 1);
+	if (input <= 0)
 		printf("0\n");
 	else
-	{
-		while (counter < 5)
-		{
-			if (a[counter] == 0)
-			{
-				printf("%d\n", a[counter + 5]);
-				return (0);
-			}
-			else
-				counter++;
-		}
-	}
+		printf("%d\n", counter1);
 	return (0);
 }
