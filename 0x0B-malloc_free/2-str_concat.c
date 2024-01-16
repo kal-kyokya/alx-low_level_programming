@@ -33,9 +33,9 @@ char *str_concat(char *s1, char *s2)
 	counter = 0;
 	while (counter < sl2)
 	{
-		*(s + counter) = *(s2 + counter);
+		*(s + (sl1 + counter)) = *(s2 + counter);
 		counter++;
 	}
-	*(s + (sl - 1)) = '\0';
+	*(s + (sl)) = '\0';
 	return (s);
 }
