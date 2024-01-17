@@ -23,13 +23,13 @@ char *str_concat(char *s1, char *s2)
 	while (*(s2 + sl2) != '\0')
 		sl2 += 1;
 	sl = sl1 + sl2 + 1;
-	s = (char *)malloc((sl * sizeof(char)));
+	if (sl == 1)
+	{
+		return (NULL);
+	}
+	s = malloc((sl * sizeof(char)));
 	if (s == NULL)
 		return (NULL);
-	else if (sl == 1)
-	{
-		return (0);
-	}
 	counter = 0;
 	while (counter < sl1)
 	{
