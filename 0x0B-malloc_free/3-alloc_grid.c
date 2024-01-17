@@ -11,23 +11,38 @@
 int **alloc_grid(int width, int height)
 {
 	int **array;
-	int counter1, counter2;
+	int counter1, counter2, counter3;
 
-	counter1 = counter2 = 0;
-	if (height <= 0 || width <= 0)
+	counter1 = counter2 = counter3 = 0;
+	if (width <= 0 || height <= 0)
 		return (NULL);
 	array = (int **)malloc(width * sizeof(int *));
-	if (array == NULL)
+	if (*(array) == NULL)
 		return (NULL);
-	while (counter1 < width)
+	while (counter1 < height)
 	{
-		while (counter2 < height)
+		*(array + counter1) = (int *)malloc(height * sizeof(int));
+		if (*(array + counter1) == NULL)
 		{
-			array[counter1][counter2] = 0;
-			counter2++;
+			while (counter2 < counter1)
+			{
+				free(*(array + counter2));
+				counter2++;
+			}
+			free(array);
+			return (NULL);
 		}
-		counter2 = 0;
+		while (counter3 < height)
+			array[counter1][counter3] = 0;
 		counter1++;
 	}
+	counter2 = 0;
+	while (counter2 < width)
+	{
+		free(*(array + counter2));
+		counter2++;
+	}
+	free(array);
+
 	return (array);
 }
