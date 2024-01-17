@@ -1,45 +1,36 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * str_concat - Concatenates one string onto the other.
- * @s1: First string.
- * @s2: Second string.
- *
- * Return: Pointer to string or NULL otherwise.
+ * str_concat - concatenate strings
+ * @s1: string 1
+ * @s2: string 2
+ * Return: NULL if failure
  */
 char *str_concat(char *s1, char *s2)
 {
 	char *s;
-	int sl1, sl2, sl, counter;
+	int sl1, sl2, counter, d;
 
 	if (s1 == NULL)
 		s1 = "";
-	else if (s2 == NULL)
+	if (s2 == NULL)
 		s2 = "";
-	sl1 = sl2 = 0;
-	while (*(s1 + sl1) != '\0')
-		sl1 += 1;
-	while (*(s2 + sl2) != '\0')
-		sl2 += 1;
-	sl = sl1 + sl2 + 1;
-	if (sl == 0)
-	{
+	for (sl1 = 0; s1[sl1] != '\0'; sl1++)
+		;
+	for (sl2 = 0; s2[sl2] != '\0'; sl2++)
+		;
+	sl2++;
+	s = malloc((sl1 + sl2) * sizeof(char));
+	if (s == 0)
 		return (NULL);
-	}
-	s = malloc((sl * sizeof(char)));
-	counter = 0;
-	while (counter < sl1)
+	for (counter = 0, d = 0; counter < (sl1 + sl2); counter++)
 	{
-		*(s + counter) = *(s1 + counter);
-		counter++;
+		if (counter < sl1)
+			s[counter] = s1[counter];
+		else
+			s[counter] = s2[d++];
 	}
-	counter = 0;
-	while (counter < sl2)
-	{
-		*(s + (sl1 + counter)) = *(s2 + counter);
-		counter++;
-	}
-	*(s + (sl)) = '\0';
 	return (s);
 }
