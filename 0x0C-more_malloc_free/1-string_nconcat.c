@@ -12,9 +12,9 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *str;
-	unsigned int sl1, sl2, sl, counter1, counter2;
+	unsigned int sl1, sl2, sl, counter1;
 
-	counter1 = counter2 = sl1 = sl2 = 0;
+	counter1 = sl1 = sl2 = 0;
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
@@ -23,7 +23,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		sl1++;
 	while (*(s2 + sl2) != '\0')
 		sl2++;
-	sl = sl1 + sl2;
+	if (n >= sl2)
+		sl = sl1 + sl2;
+	else
+		sl = sl1 + n;
 	str = malloc((sl + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
@@ -32,18 +35,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		*(str + counter1) = *(s1 + counter1);
 		counter1++;
 	}
-	while (counter1 < sl && n >= sl2)
+	while (counter1 < sl)
 	{
-		*(str + counter1) = *(s2 + counter2);
-		counter1++;
-		counter2++;
-	}
-	while (counter1 < sl && counter2 < n)
-	{
-		*(str + counter1) = *(s2 + counter2);
-		counter2++;
+		*(str + counter1) = *(s2 + (counter1 - sl1));
 		counter1++;
 	}
-	counter1 = counter2 = 0;
+	*(str + counter1) = '\0';
 	return (str);
 }
