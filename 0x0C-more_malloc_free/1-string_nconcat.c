@@ -37,8 +37,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		while (counter1 < sl)
 		{
-			*(str + counter1) = *(s1 + counter1);
+			*(str + counter1) = *(s2 + counter2);
 			counter1++;
+			counter2++;
 		}
 	}
 	else
@@ -50,6 +51,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			counter1++;
 		}
 	}
+	counter1 = counter2 = 0;
 
 	return (str);
 }
