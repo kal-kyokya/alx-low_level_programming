@@ -16,12 +16,8 @@ void more_numbers(void)
 		while (counter2 <= 14)
 		{
 			if (counter2 > 9)
-			{
 				_putchar((counter2 / 10) + '0');
-				_putchar((counter2 % 10) + '0');
-			}
-			else
-				_putchar(counter2 + '0');
+			_putchar((counter2 % 10) + '0');
 			counter2++;
 		}
 		_putchar('\n');
