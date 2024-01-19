@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
 
 	result = 1;
 	counter1 = 1;
-	counter2 = 0;
 	if (argc != 3)
 	{
 		printf("Error\n");
@@ -25,6 +24,7 @@ int main(int argc, char *argv[])
 	}
 	while (counter1 < argc)
 	{
+		counter2 = 0;
 		str = argv[counter1];
 		while (str[counter2] != '\0')
 		{
@@ -36,7 +36,6 @@ int main(int argc, char *argv[])
 			counter2++;
 		}
 		result *= atoi(argv[counter1]);
-		counter2 = 0;
 		counter1++;
 	}
 	printf("%d\n", result);
