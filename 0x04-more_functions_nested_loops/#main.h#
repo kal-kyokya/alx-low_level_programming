@@ -1,9 +1,0 @@
-in11;rgb:0000/0000/0000t mul(int a#ifndef MAIN_H
-#define MAIN_H
-
-int _putchar(char c);
-int _isupper(char c);
-int _isdigit(int x);
-
-
-#endif
