@@ -15,18 +15,16 @@ int main(void)
 		if (counter % 3 == 0)
 			printf("Fizz ");
 		else if (counter % 5 == 0)
-		{
-			if (counter == 100)
-				printf("Buzz");
-			else
-				printf("Buzz ");
-		}
+			printf("Buzz ");
 		else if (counter % 3 == 0 && counter % 5)
 			printf("FizzBuzz ");
-		else
+		else if (counter < 100)
 			printf("%d ", counter);
+		else
+			printf("%d", counter);
 		counter++;
 	}
 	printf("\n");
+
 	return (0);
 }
