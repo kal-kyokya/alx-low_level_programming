@@ -11,7 +11,7 @@ void print_square(int size)
 	int counter1, counter2;
 
 	counter1 = counter2 = 0;
-	if (size == 0)
+	if (size <= 0)
 		_putchar('\n');
 	else
 	{
