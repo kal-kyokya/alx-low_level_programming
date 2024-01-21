@@ -8,27 +8,23 @@
  */
 void print_diagonal(int n)
 {
-	int counter1, counter2;
+	int counter1, counter2, checker;
 
-	counter1 = counter2 = 0;
+	counter1 = 0;
+	checker = n - 1;
 
 	if (n > 0)
 	{
 		while (counter1 < n)
 		{
-			while (counter2 < n)
+			_putchar('\\');
+			_putchar('\n');
+			counter2 = 0;
+			while (counter2 != checker)
 			{
-				if (counter1 == counter2)
-				{
-					_putchar('\\');
-					_putchar('\n');
-					break;
-				}
-				else
-					_putchar(' ');
+				_putchar(' ');
 				counter2++;
 			}
-			counter2 = 0;
 			counter1++;
 		}
 	}
