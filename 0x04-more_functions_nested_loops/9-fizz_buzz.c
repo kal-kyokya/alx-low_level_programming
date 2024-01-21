@@ -17,7 +17,7 @@ int main(void)
 		else if (counter % 3 == 0)
 			printf("Fizz ");
 		else if (counter % 5 == 0)
-				printf("Buzz ");
+			printf("Buzz ");
 		else
 			printf("%d ", counter);
 		counter++;
