@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_square - Using hash signs print a square on screen.
+ * print_square - Draw a square on screen using hash signs.
  * @size: Number of hash signs to found on sides.
  *
  * Return: Nothing.
