@@ -1,8 +1,10 @@
 #ifndef DOG
 #define DOG
 
+void init_dog(struct dog *d, char *name, char *owner, float age)
+
 /**
- * dog - Structure of currently 3 members
+ * struct dog - Structure of currently 3 members
  * @name: String variable, member one.
  * @owner: String variable, member two.
  * @age: Float type element, last member.
