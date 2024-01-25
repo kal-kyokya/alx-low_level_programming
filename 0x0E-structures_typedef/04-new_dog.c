@@ -6,10 +6,8 @@
  * @name: Name of the dog.
  * @age: Age of the dog.
  * @owner: Owner of the dog.
- *
  * Return: Pointer to newly created Variable of type dog_t
  */
-
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dog2;
@@ -24,28 +22,27 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog2 = malloc(sizeof(dog_t));
 	if (dog2 == NULL)
 		return (NULL);
-	cp_n = malloc(sl_n + 1);
-	cp_o = malloc(sl_o + 1);
-	if (cp_n == NULL || cp_o == NULL)
+	cp_n = malloc(sizeof(char) * sl_n + 1);
+	if (cp_n == NULL)
+	{
+		free(cp_n);
+		free(dog2);
+		return (NULL);
+	}
+	cp_o = malloc(sizeof(char) * sl_o + 1);
+	if (cp_o == NULL)
 	{
 		free(cp_n);
 		free(cp_o);
 		free(dog2);
 		return (NULL);
 	}
-	while (counter1	< sl_n)
-	{
+	for (; counter1	< sl_n; counter1++)
 		*(cp_n + counter1) = *(name + counter1);
-		counter1++;
-	}
-	while (counter2	< sl_o)
-	{
+	for (; counter2	< sl_o; counter2++)
 		*(cp_o + counter2) = *(owner + counter2);
-		counter2++;
-	}
 	dog2->name = name;
-	(*dog2).owner = owner;
 	dog2->age = age;
-
+	dog2->owner = owner;
 	return (dog2);
 }
