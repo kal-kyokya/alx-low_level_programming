@@ -1,4 +1,5 @@
 #include "function_pointers.h"
+#include <stdlib.h>
 
 /**
  * print_name - Uses a "third party" function to display a name on screen.
@@ -9,5 +10,6 @@
  */
 void print_name(char *name1, void (*function)(char *name2))
 {
-	(*function)(name1);
+	if (name1 != NULL)
+		(*function)(name1);
 }
