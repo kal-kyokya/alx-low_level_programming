@@ -12,7 +12,7 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog2;
+	struct dog *dog2;
 	int sl_n, sl_o, counter1, counter2;
 	char *cp_n, *cp_o;
 
@@ -21,7 +21,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		sl_n++;
 	while (*(owner + sl_o) != '\0')
 		sl_o++;
-	dog2 = malloc(sizeof(dog_t));
+	dog2 = malloc(sizeof(struct dog));
 	if (dog2 == NULL)
 		return (NULL);
 	cp_n = malloc(sl_n + 1);
