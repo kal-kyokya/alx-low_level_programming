@@ -30,6 +30,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		free(cp_n);
 		free(cp_o);
+		free(dog2);
 		return (NULL);
 	}
 	while (counter1	< sl_n)
