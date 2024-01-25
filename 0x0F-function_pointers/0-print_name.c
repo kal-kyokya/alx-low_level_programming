@@ -1,7 +1,7 @@
 #include "function_pointers.h"
 
 /**
- * print-name - Uses a "third party" function to display a name on screen.
+ * print_name - Uses a "third party" function to display a name on screen.
  * @name1: String to be displayed.
  * @function: Function used to print string.
  *
@@ -9,5 +9,5 @@
  */
 void print_name(char *name1, void (*function)(char *name2))
 {
-	function(name1);
+	(*function)(name1);
 }
