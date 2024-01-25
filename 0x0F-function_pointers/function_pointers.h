@@ -1,7 +1,7 @@
-#ifndef F_POINTER
-#define F_POINTER
+#ifndef FUNCTION_POINTERS
+#define FUNCTION_POINTERS
 
-void print_name(char *name1, void (*function)(char *));
+void print_name(char *name, void (*f)(char *));
 int _putchar(char c);
 
 
