@@ -29,8 +29,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dog2);
 		return (NULL);
 	}
-	cp_n = malloc(sl_n);
-	cp_o = malloc(sl_o);
+	cp_n = malloc(sl_n + 1);
+	cp_o = malloc(sl_o + 1);
+	if (cp_n == NULL || cp_o == NULL)
+	{
+		free(cp_n);
+		free(cp_o);
+		return (NULL);
+	}
 	while (counter1	< sl_n)
 	{
 		*(cp_n + counter1) = *(name + counter1);
@@ -44,7 +50,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog2->name = name;
 	(*dog2).owner = owner;
 	dog2->age = age;
-	free(dog2);
 
 	return (dog2);
 }
