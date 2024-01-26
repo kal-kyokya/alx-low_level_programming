@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	}
 	while (counter < checker)
 	{
-		printf("%02hhx", opcode[counter]);
+		printf("%02hhx", opcode_str[counter]);
 		if (counter < checker - 1)
 			printf(" ");
 		else
