@@ -4,7 +4,7 @@
 /**
  * main - Entry point to the function.
  * @argc: Number of args on command line.
- * @argv: String arguments on cmd line. 
+ * @argv: String arguments on cmd line.
  *
  * Return: 0 if program runs succesfully.
  */
