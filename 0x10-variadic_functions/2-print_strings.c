@@ -24,7 +24,7 @@ void print_strings(const char *separator, const unsigned int arg_num, ...)
 			printf("%s", str);
 		else
 			printf("nil");
-		if (counter < arg_num - 1 && separator != NULL)
+		if (counter < (arg_num - 1) && separator != NULL)
 			printf("%s", separator);
 		counter++;
 	}
