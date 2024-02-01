@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * rev_string: Inverts a string.
+ * rev_string - Inverts a string.
  * @s: String to be inverted.
  *
  * Return: Nothing.
@@ -15,7 +15,7 @@ void rev_string(char *s)
 	while (s[len] != '\0')
 		len++;
 	count2 = len;
-	while (count < count2/2)
+	while (count < (count2 / 2))
 	{
 		len--;
 		s2 = s[count];
