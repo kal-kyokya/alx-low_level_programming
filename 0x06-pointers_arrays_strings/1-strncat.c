@@ -21,13 +21,11 @@ char *_strncat(char *dest, char *src, int n)
 		l2++;
 	while (count <= n)
 	{
-		if (count == n)
+		if (count == n || n < 1)
 		{
 			str[l1] = '\0';
 			break;
 		}
-		else if (n == 0)
-			break;
 		str[l1] = src[count];
 		count++;
 		l1++;
