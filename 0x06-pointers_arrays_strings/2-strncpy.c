@@ -17,8 +17,11 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		dest[count] = src[count];
 		count++;
-		if (src[count] == '\0')
-			dest[count] = '\0';
+	}
+	while (n > count)
+	{
+		dest[count] = '\0';
+		count++;
 	}
 
 	return (dest);
