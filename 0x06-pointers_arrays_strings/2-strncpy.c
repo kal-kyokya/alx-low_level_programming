@@ -11,22 +11,20 @@
 char *_strncpy(char *dest, char *src, int n)
 {
 	char *str;
-	int l1, l2, count;
+	int l2, count;
 
-	l1 = l2 = count = 0;
+	l2 = count = 0;
 	str = dest;
-	if (n < 1)
+	if (n <= 0)
 		return (str);
-	while (dest[l1] != '\0')
-		l1++;
 	while (src[l2] != '\0' && count < n)
 	{
 		str[count] = src[count];
 		l2++;
 		count++;
+		if (src[l2] == '\0')
+			str[count] = '\0';
 	}
-	if (src[l2] == '\0')
-		str[count] = '\0';
 
 	return (str);
 }
