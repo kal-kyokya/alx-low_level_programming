@@ -10,21 +10,16 @@
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	char *str;
-	int l2, count;
+	int count;
 
-	l2 = count = 0;
-	str = dest;
-	if (n <= 0)
-		return (str);
-	while (src[l2] != '\0' && count < n)
+	count = 0;
+	while (src[count] != '\0' && count < n)
 	{
-		str[count] = src[count];
-		l2++;
+		dest[count] = src[count];
 		count++;
-		if (src[l2] == '\0')
-			str[count] = '\0';
+		if (src[count] == '\0')
+			dest[count] = '\0';
 	}
 
-	return (str);
+	return (dest);
 }
