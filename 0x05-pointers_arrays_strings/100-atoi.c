@@ -20,7 +20,8 @@ int _atoi(char *s)
 		if (s[count1] >= '0' && s[count1] <= '9')
 		{
 			result = (s[count1] - '0');
-			while (s[count1 + 1] >= '0' && s[count1 + 1] <= '9')
+			count1++;
+			while (s[count1] >= '0' && s[count1] <= '9')
 			{
 				result = (result * 10) + (s[count1 + 1] - '0');
 				count1++;
