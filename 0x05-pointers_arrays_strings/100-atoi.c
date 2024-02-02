@@ -13,6 +13,8 @@ int _atoi(char *s)
 	len = count1 = count2 = 0;
 	while (s[len] != '\0')
 		len++;
+	if (len == 0)
+		return (0);
 	while (count1 < len)
 	{
 		if (s[count1] >= '0' && s[count1] <= '9')
