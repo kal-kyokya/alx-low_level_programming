@@ -14,18 +14,17 @@ char *_strncat(char *dest, char *src, int n)
 	int l1, l2, count;
 
 	str = dest;
+	if (n < 1)
+		return (str);
 	l1 = l2 = count = 0;
 	while (dest[l1] != '\0')
 		l1++;
 	while (src[l2] != '\0')
 		l2++;
-	while (count <= n)
+	while (count < n)
 	{
-		if (count == n || n < 1)
-		{
-			str[l1] = '\0';
+		if (count == l2)
 			break;
-		}
 		str[l1] = src[count];
 		count++;
 		l1++;
