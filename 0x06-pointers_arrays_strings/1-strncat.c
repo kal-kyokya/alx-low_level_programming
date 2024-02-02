@@ -26,6 +26,8 @@ char *_strncat(char *dest, char *src, int n)
 			str[l1] = '\0';
 			break;
 		}
+		else if (n == 0)
+			break;
 		str[l1] = src[count];
 		count++;
 		l1++;
