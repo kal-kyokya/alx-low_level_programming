@@ -4,18 +4,20 @@
 
 int main(void)
 {
-	int myrand;
-	int count;
-	int total;
+	int myrand, count, total;
 
+	count = 0;
+	total = 2772;
 	srand(time(NULL));
-	for (count = 0, total = 2772; total > 122; count++)
+	while (total > 122)
 	{
 		myrand = (rand() % 125) + 1;
 		printf("%c", myrand);
 		total -= myrand;
+		count++;
 	}
 	printf("%c", total);
+	printf("\n");
 
 	return (0);
 }
