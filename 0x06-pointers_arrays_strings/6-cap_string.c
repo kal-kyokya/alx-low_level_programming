@@ -8,35 +8,37 @@
  */
 char *cap_string(char *s)
 {
-	char *sep1, *sep2;
-	int c, x1, x2;
+	char *sep;
+	int trigger, x1, x2;
 
-	sep1 = " ,.;?(){}!";
-	sep2 = "\"nt";
-	c = 0;
-	while (s[c] != '\0')
+	sep = " ,.;?(){}!\"\n\t";
+	trigger = x1 = 0;
+	while (s[x1] != '\0')
 	{
-		if (s[c] > 96 && s[c] < 123)
+		if (s[0] > 96 && s[0] < 123)
+			s[0] -= 32;
+		x2 = 0;
+		while (sep[x2] != '\0')
 		{
-			x1 = 10;
-			x2 = 4;
-			while (x1 >= 0 || x2 >= 0)
-			{
-				x1--;
-				x2--;
-				if (s[c - 1] == sep1[x2])
-				{
-					s[c] -= 32;
-					break;
-				}
-				else if (s[c - 2] == 92 && s[c - 1] == sep2[x2])
-				{
-					s[c] -= 32;
-					break;
-				}
-			}
+			if (sep[x2] == s[x1])
+				trigger = 1;
+
+			x2++;
 		}
-		c++;
+		if (trigger)
+		{
+			if (s[x1] > 96 && s[x1] < 123)
+			{
+				s[x1] -= 32;
+				trigger = 0;
+			}
+			else if (s[x1] > 47 && s[x1] < 58)
+				trigger = 0;
+			else if (s[x1] > 64 && s[x1] < 91)
+				trigger = 0;
+		}
+
+		x1++;
 	}
 
 	return (s);
