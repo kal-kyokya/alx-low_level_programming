@@ -19,9 +19,7 @@ char *leet(char *s)
 		count2 = 0;
 		while (set1[count2] != '\0')
 		{
-			if (set1[count2] == s[count1])
-				s[count1] = set2[count2];
-			else if ((set1[count2] + 32) == s[count1])
+			if (set1[count2] == s[count1] || (set1[count2] + 32) == s[count1])
 				s[count1] = set2[count2];
 			count2++;
 		}
