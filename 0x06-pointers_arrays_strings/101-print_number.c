@@ -2,36 +2,41 @@
 
 /**
  * print_number - Send an integer to stdout using _putchar().
- * @n: Integers to be printed.
+ * @input: Integer to be printed.
  *
  * Return: Nothing.
  */
-void print_number(int n)
+void print_number(int input)
 {
-	int x;
+	int divisor, rest, quotient;
 
-	if (n == 0)
-		_putchar(n + '0');
-	else if (n < 0)
-	{
-		_putchar('-');
-		n *= -1;
-		print_number(n);
-	}
+	divisor = 10;
+	if (input == 0)
+		_putchar(0 + '0');
 	else
 	{
-		x = n / 10;
-		if (x < 10)
+		if (input < 0)
 		{
-			_putchar(x + '0');
-			n %= 10;
-			_putchar(n + '0');
+			_putchar('-');
+			input *= -1;
 		}
-		else
+		while (input / divisor > 9)
+			divisor *= 10;
+		while (input / divisor < 10 && divisor != 1)
 		{
-			print_number(x);
-			n %= 10;
-			_putchar(n + '0');
+			quotient = input / divisor;
+			_putchar(quotient + '0');
+			rest = input % divisor;
+			if (rest < 10)
+			{
+				_putchar(rest + '0');
+				divisor = 1;
+			}
+			else
+			{
+				input = rest;
+				divisor /= 10;
+			}
 		}
 	}
 }
