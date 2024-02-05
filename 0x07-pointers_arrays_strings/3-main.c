@@ -14,5 +14,12 @@ int main(void)
 
     n = _strspn(s, f);
     printf("%u\n", n);
+
+    char *s = "mari";
+    char *f = "demarie";
+    unsigned int n;
+
+    n = _strspn(s, f);
+    printf("%u\n", n);
     return (0);
 }
