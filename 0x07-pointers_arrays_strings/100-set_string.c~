@@ -1,0 +1,22 @@
+#include "main.h"
+
+/**
+ * set_string - Sets memory region holding a string literal to another.
+ * @s: Pointer to targeted memory.
+ * @to: String to be copied.
+ *
+ * Return: Nothing.
+ */
+void set_string(char **s, char *to)
+{
+	char *str;
+	int count;
+
+	count = 0;
+	str = *s;
+	while (*(to + count) != '\0')
+	{
+		*(str + count) = *(to + count);
+		count++;
+	}
+}
