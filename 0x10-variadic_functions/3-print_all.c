@@ -1,42 +1,79 @@
 #include "variadic_functions.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
- * print_all - Sends a set of data type to stdout.
- * @str: String containing specifier for format to be handle.
- *
- * Return: Nothing.
+ * _printchar - print char type element from va_list
+ * @list: va_list passed to function
  */
-void print_all(const char * const str, ...)
+void _printchar(va_list list)
 {
-	va_list ptr_to_arg;
-	int count1, count2, formats;
-	txf tf[] = {
-		{'c', print_char}, {'i', print_int},
-		{'f', print_float}, {'s', print_str}
+	printf("%c", va_arg(list, int));
+}
+
+/**
+ * _printstr - print string element from va_list
+ * @list: va_list passed to function
+ */
+void _printstr(va_list list)
+{
+	char *s;
+
+	s = va_arg(list, char *);
+	if (s == NULL)
+		s = "(nil)";
+	printf("%s", s);
+}
+
+/**
+ * _printfloat - print float type element from va_list
+ * @list: va_list passed to function
+ */
+void _printfloat(va_list list)
+{
+	printf("%f", va_arg(list, double));
+}
+
+/**
+ * _printint - print int type element from va_list
+ * @list: va_list passed to function
+ */
+void _printint(va_list list)
+{
+	printf("%d", va_arg(list, int));
+}
+
+/**
+ * print_all - print anything passed if char, int, float, or string.
+ * @format: string of formats to use and print
+ */
+void print_all(const char * const format, ...)
+{
+	unsigned int i, j;
+	va_list args;
+	char *sep;
+
+	checker storage[] = {
+		{ "c", _printchar },
+		{ "f", _printfloat },
+		{ "s", _printstr },
+		{ "i", _printint }
 	};
 
-	va_start(ptr_to_arg, str);
-	formats = sizeof(tf) / sizeof(tf[0]);
-	count1 = 0;
-	while (str[count1] != '\0')
+	i = 0;
+	sep = "";
+	va_start(args, format);
+	while (format != NULL && format[i / 4] != '\0')
 	{
-		count2 = 0;
-		while (count2 < formats)
+		j = i % 4;
+		if (storage[j].type[0] == format[i / 4])
 		{
-			if (tf[count2].c == str[count1])
-			{
-				tf[count2].func(ptr_to_arg);
-				if (str[count1 +1] != '\0')
-				{
-					_putchar(',');
-					_putchar(' ');
-				}
-				count1++;
-				continue;
-			}
-			count2++;
+			printf("%s", sep);
+			storage[j].f(args);
+			sep = ", ";
 		}
-		count1++;
+		i++;
 	}
-	_putchar('\n');
+	printf("\n");
+	va_end(args);
 }

@@ -26,8 +26,11 @@ void print_all(const char * const str, ...)
 			if (tf[count2].c == str[count1])
 			{
 				tf[count2].func(ptr_to_arg);
-				_putchar(',');
-				_putchar(' ');
+				if (str[count1 +1] != '\0')
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
 				count1++;
 				continue;
 			}
