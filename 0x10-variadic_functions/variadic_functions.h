@@ -14,6 +14,11 @@ int print_str(va_list ptr_to_arg);
 int print_int(va_list ptr_to_arg);
 int print_float(va_list ptr_to_arg);
 int print_num(int x);
+void _printchar(va_list list);
+void _printstr(va_list list);
+void _printfloat(va_list list);
+void _printint(va_list list);
+
 
 /**
  * struct typeXfunc - Structure of elements that facilitates printing of input.
@@ -28,7 +33,7 @@ typedef struct typeXfunc
 {
 	char c;
 
-	int (*func)(va_list);
+	void (*func)(va_list);
 } txf;
 
 #endif
