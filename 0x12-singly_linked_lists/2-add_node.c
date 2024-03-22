@@ -14,8 +14,7 @@ list_t *add_node(list_t **head, const char *s)
 	node = (list_t *)malloc(sizeof(list_t));
 	if (node == NULL)
 	{
-		fprintf(stderr, "Memory allocation failed.\n");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	node->len = strlen(s);
 	node->str = strdup(s);
