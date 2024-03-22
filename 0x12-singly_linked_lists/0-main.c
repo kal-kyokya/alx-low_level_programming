@@ -28,7 +28,7 @@ int main(void)
 	head = new;
 	n = print_list(head);
 	printf("-> %lu elements\n", n);
-	
+
 	printf("\n");
 	free(new->str);
 	new->str = NULL;
