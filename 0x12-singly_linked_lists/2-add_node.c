@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * add_note - Set a node as header in linked list.
+ * add_node - Set a node as header in linked list.
  * @head: Pointer to the first linked list node.
  * @s: String value of added node.
  *
