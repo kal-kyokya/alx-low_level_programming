@@ -2,9 +2,8 @@ section .data
     hello db "Hello, Holberton", 10, 0  ; 10 is the ASCII code for a new line character
 
 section .text
+    extern printf
     global main
-
-extern printf
 
 main:
     push rbp
