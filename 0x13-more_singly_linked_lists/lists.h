@@ -8,7 +8,7 @@
 
 /**
  * struct listint_s - Data structure representing a SLL.
- * @num: Integer value found inside listint_s.
+ * @n: Integer value found inside listint_s.
  * @next: Pointer value found inside our typdef.
  *
  * Description: This typedefed data Structure is to be used
