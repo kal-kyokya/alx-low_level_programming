@@ -18,13 +18,10 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	node = head;
 	if (index == 0)
 		return (node);
-	else
+	while (count != index)
 	{
-		while (count != index)
-		{
-			node = node->next;
-			count++;
-		}
+		node = node->next;
+		count++;
 	}
 
 	return (node);
