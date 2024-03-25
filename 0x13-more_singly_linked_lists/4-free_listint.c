@@ -2,15 +2,15 @@
 
 /**
  * free_listint - Frees malloced memory blocks.
- * @h: Pointer to the head node.
+ * @head: Pointer to the head node.
  *
  * Return: Nothing.
  */
-void free_listint(listint_t *h)
+void free_listint(listint_t *head)
 {
 	listint_t *node;
 
-	node = h;
+	node = head;
 	while (node != NULL)
 	{
 		free(node);
