@@ -13,7 +13,7 @@ int pop_listint(listint_t **head)
 	int num;
 
 	if (head == NULL || *head == NULL)
-	  return (-1);
+		return (0);
 	node = *head;
 	helper = *head;
 	num = node->n;
