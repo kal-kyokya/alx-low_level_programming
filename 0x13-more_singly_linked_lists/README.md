@@ -1,0 +1,1 @@
+This directory will be home to c and any other type of file required for completion of the 0x13 ALX project.
