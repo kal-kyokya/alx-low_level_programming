@@ -1,0 +1,1 @@
+This directory is home to all files required for completion of the bit manipulation project from the ALX Software Engineering program.
