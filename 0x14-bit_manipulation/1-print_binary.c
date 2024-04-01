@@ -1,28 +1,31 @@
 #include "main.h"
 
 /**
- * print_binary: Converts & prints a decimal number into binary.
+ * print_binary - Converts & prints a decimal number into binary.
  * @n: Decimal number to be converted.
  *
  * Return: Nothing.
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int bit;
+	unsigned long int num;
 	int count;
 
-	bit = 0;
-	count = sizeof(unsigned long int) * 8 - 1;
-	if (n == 0 || n == 1)
+	count = (sizeof(unsigned long int) * 8) - 1;
+	num = 0;
+	if (n == 1 || n == 0)
 		_putchar(n + '0');
 	else
 	{
-		while ((1 & (n >> count)) == 0)
+		while (n >> count == 0)
 			count--;
-		while (count != 0)
+		while (count >= 0)
 		{
-			bit = 1 & (n >> count);
-			_putchar(bit + '0');
+			num = 1 & (n >> count);
+			if (num)
+				_putchar('1');
+			else
+				_putchar('0');
 
 			count--;
 		}
