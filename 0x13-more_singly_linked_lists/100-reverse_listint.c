@@ -1,28 +1,25 @@
 #include "lists.h"
 
 /**
- * reverse_listint - Reverses the order of all node inside a list.
- * @head: Pointer to the head pointer of SLL.
+ * reverse_listint - Reverses the order of a listint_t linked list.
+ * @head: Pointer to the head pointer of the list.
  *
- * Return: A pointer to the reversed list's first node.
+ * Return: Pointer to the first node of the reversed list.
  */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *node;
-	listint_t *helper;
+	listint_t *prev = NULL;
+	listint_t *temp;
 
-	if (head == NULL || *head == NULL)
-		return (NULL);
-	node = *head;
-	helper = NULL;
 	while (*head != NULL)
 	{
-		*head = node->next;
-		node->next = helper;
-		(*head)->next = node;
-		helper = (*head)->next;
-		node = node->next;
+		temp = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = temp;
 	}
 
-	return (node);
+	*head = prev;
+
+	return (prev);
 }
