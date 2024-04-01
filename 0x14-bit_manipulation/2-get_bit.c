@@ -12,7 +12,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned int bit;
 
 	bit = 1 & (n >> index);
-	if (bit != 1 && bit != 0)
+	if (index > sizeof(unsigned long int) * 8)
 		return (-1);
 
 	return (bit);
