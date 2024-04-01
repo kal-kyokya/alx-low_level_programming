@@ -1,0 +1,36 @@
+#include "main.h"
+
+/**
+ * clear_bit - Sets the nth bit to 0.
+ * @n: Number getting edited.
+ * @index: Index at which clearance occurs.
+ *
+ * Return: 1 if it worked, -1 otherwise.
+ */
+int clear_bit(unsigned long int *n, unsigned int index)
+{
+	int count1;
+	unsigned int count2, count3;
+	unsigned long int bit;
+
+	count2 = 0;
+	bit = 0;
+	if (index > sizeof(unsigned long int) * 8)
+		return (-1);
+	count1 = sizeof(unsigned long int) * 8 - 1;
+	while (*n >> count1 == 0)
+		count1--;
+	count3 = count1 + 1;
+	while (count1 >= 0)
+	{
+		if (count3 == count2 + index)
+			bit = (bit | (0 >> count1)) << 1;
+		else
+			bit = (bit | (*n >> count1)) << 1;
+
+		count1--;
+		count2++;
+	}
+
+	return (1);
+}
