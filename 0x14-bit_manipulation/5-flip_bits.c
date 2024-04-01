@@ -1,38 +1,20 @@
 #include "main.h"
 
 /**
- * flip_bits - Computes the number of manipulation required for a flip.
- * @n: Number to flip.
- * @m: Number to be flipped into.
- *
- * Return: The number of manipulations required.
+ * flip_bits - finds number of bits you would need to flip
+ * @n: first number
+ * @m: second number
+ * Return:  number of bits you would need to flip
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int bit;
-	int count1, count2;
+	unsigned int count = 0;
+	unsigned int xor_result = n ^ m;
 
-	bit = 0;
-	count1 = count2 = sizeof(unsigned long int) * 8 - 1;
-	while ((1 & n >> count1) != 0)
-		count1--;
-	while ((1 & n >> count2) != 0)
-		count2--;
-	if (count1 >= count2)
-		count2 = count1;
-	else
-		count1 = count2;
-	while (count1 >= 0)
+	while (xor_result != 0)
 	{
-		if ((1 & n >> count1) == (1 & m >> count1))
-		{
-			count1--;
-			continue;
-		}
-
-		bit++;
-		count1--;
+		count += xor_result & 1;
+		xor_result >>= 1;
 	}
-
-	return (bit);
+	return (count);
 }
