@@ -19,10 +19,10 @@ int create_file(const char *filename, char *text_content)
 	fdescri = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0600);
 	if (fdescri == -1)
 		return (-1);
-	while (text_content[count] != '\0')
-		count++;
 	if (text_content != NULL)
 	{
+		while (text_content[count] != '\0')
+			count++;
 		bytes_written = write(fdescri, text_content, count);
 		if (bytes_written <= 0)
 		{
