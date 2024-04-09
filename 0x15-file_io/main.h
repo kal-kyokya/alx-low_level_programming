@@ -5,6 +5,10 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <elf.h>
+#include <string.h>
 
 /**
  * error_exit1 - prints error message and exit
@@ -44,11 +48,11 @@ void error_exit0(int code, const char *message)
 	exit(code);
 }
 
-int _putchar(char c);
 ssize_t read_textfile(const char *filename, size_t letters);
 int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
-int _strlen(char *s);
 int copy(const char *file_from, char *file_to);
+void print_elf_header_info(Elf64_Ehdr *header);
+int main(int argc, char **argv);
 
 #endif
