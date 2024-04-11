@@ -1,0 +1,1 @@
+This directory contains all files geenerated during learning about and solving tasks related to the Shell project.
