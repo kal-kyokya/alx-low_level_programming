@@ -13,12 +13,11 @@
  */
 char *_strtok(char *str, const char *del)
 {
-	static char *token;
+	char *token;
 	static int count;
 	int wl;
 
 	token = NULL;
-
 	while (*(str + count) != '\0')
 	{
 		wl = 1;
