@@ -1,1 +1,1 @@
-test test test
+cat 4-getline.c

@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <unistd.h>
+
+/**
+ * main - Entry point to the function.
+ *
+ * Return: 0 if program runs successfully.
+ */
+int main(int argc, char **argv)
+{
+	const char *exec_args;
+
+	exec_args = {"bin/cat", "main.h", NULL};
+	execve(exec_args[0], exec_args[1], exec_args[2]);
+
+	return (0);
+}
