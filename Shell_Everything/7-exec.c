@@ -2,16 +2,16 @@
 #include <unistd.h>
 
 /**
- * main - Entry point to the function.
+ * main - Entry point to the program.
  *
  * Return: 0 if program runs successfully.
  */
 int main(void)
 {
-	char *exec_args[] = { "/bin/cat", "main.h", NULL };
-	char  *env_args[] = { NULL };
+	char *pgrmXargs[] = { "/bin/wc", "-m",  "7-exec.c", NULL };
+	char *env[] = { NULL };
 
-	execve(exec_args[0], exec_args, env_args);
+	execve(pgrmXargs[0], pgrmXargs, env);
 
 	return (0);
 }
