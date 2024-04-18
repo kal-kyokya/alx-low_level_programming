@@ -1,5 +1,4 @@
 #include "main.h"
-#include "lists.h"
 
 /**
  * main - check the code
@@ -8,11 +7,13 @@
  */
 int main(void)
 {
-  list_t *head;
+	list_t *head;
+	size_t elements;
 
-  head = path_lkd_ls(&head);
-  print_list(head);
+	head = path_lkd_ls(&head);
+	elements = print_list(head);
+	printf("\nThere are %ld elements in the linked list.\n", elements);
 
-  free(head);
-  return (0);
+	free(head);
+	return (0);
 }

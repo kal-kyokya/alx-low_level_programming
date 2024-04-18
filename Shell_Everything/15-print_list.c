@@ -10,20 +10,20 @@
  */
 size_t print_list(const list_t *h)
 {
-        const list_t *node;
-        size_t count;
+	const list_t *node;
+	size_t count;
 
-        count = 0;
-        node = h;
-        while (node != NULL)
-        {
-                if (node->str != NULL)
-                        printf("[%d] %s\n", node->len, node->str);
-                else
-                        printf("[0] (nil)\n");
-                node = node->next;
-                count++;
-        }
+	count = 0;
+	node = h;
+	while (node != NULL)
+	{
+		if (node->pathname != NULL)
+			printf("%s\n", node->pathname);
+		else
+			printf("[0] (nil)\n");
+		node = node->next;
+		count++;
+	}
 
-        return (count);
+	return (count);
 }

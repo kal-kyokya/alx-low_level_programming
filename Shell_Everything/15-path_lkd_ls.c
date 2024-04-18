@@ -1,4 +1,5 @@
 #include "main.h"
+#define TRUE 1
 
 /**
  * path_lkd_ls - Initializes a SLL from an environ. variable.
@@ -9,7 +10,7 @@
 list_t *path_lkd_ls(list_t **head)
 {
 	list_t *node, *helper;
-	char *path;
+	char *path, *token;
 
 	path = getenv("PATH");
 	node = malloc(sizeof(list_t));
@@ -21,7 +22,7 @@ list_t *path_lkd_ls(list_t **head)
 	node->pathname = strtok(path, ":");
 	node->next = NULL;
 	*head = node;
-	while (node->pathname != NULL)
+	while (TRUE)
 	{
 		helper = node;
 		node = malloc(sizeof(list_t));
@@ -30,7 +31,10 @@ list_t *path_lkd_ls(list_t **head)
 			dprintf(2, "Error: Failed to allocated memory for node.\n");
 			return (NULL);
 		}
-		node->pathname = strtok(NULL, ":");
+		token = strtok(NULL, ":");
+		if (token == NULL)
+			break;
+		node->pathname = token;
 		node->next = NULL;
 		helper->next = node;
 	}
