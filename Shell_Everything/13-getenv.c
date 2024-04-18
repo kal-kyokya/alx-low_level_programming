@@ -17,6 +17,8 @@ char *_getenv(const char *env_var_name)
 	while (env[count] != NULL)
 	{
 		temp = malloc(strlen(env[count]));
+		if (temp == NULL)
+			return (NULL);
 		temp = strcpy(temp, env[count]);
 		token = strtok(temp, "=");
 		value = strchr(env[count], '=');
@@ -29,5 +31,6 @@ char *_getenv(const char *env_var_name)
 			count++;;
 	}
 
+	free(temp);
 	return (value);
 }
