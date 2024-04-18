@@ -8,5 +8,22 @@
  */
 char *_getenv(const char *env_var_name)
 {
+	int count;
+	char *str, *value;
 
+	count = 0;
+	while (environ[count] != NULL)
+	{
+		str = strtok(environ[count], "=");
+		if (str == NULL)
+			return (NULL);
+		if (str == env_var_name)
+		{
+			value = strtok(NULL, "=");
+			break;
+		}
+		count++;
+	}
+
+	return (value);
 }

@@ -8,9 +8,11 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <string.h>
 
 extern char **environ;
 
+char *_getenv(const char *env_var_name);
 char *_strtok(const char *str, const char *del);
 
 #endif
