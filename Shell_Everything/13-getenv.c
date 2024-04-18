@@ -8,21 +8,25 @@
  */
 char *_getenv(const char *env_var_name)
 {
+	char **env;
+	char *token, *value, *temp;
 	int count;
-	char *str, *value;
 
 	count = 0;
-	while (environ[count] != NULL)
+	env = environ;
+	while (env[count] != NULL)
 	{
-		str = strtok(environ[count], "=");
-		if (str == NULL)
-			return (NULL);
-		if (str == env_var_name)
+		temp = malloc(strlen(env[count]));
+		temp = strcpy(temp, env[count]);
+		token = strtok(temp, "=");
+		value = strchr(env[count], '=');
+		if (strcmp(env_var_name, token) == 0)
 		{
-			value = strtok(NULL, "=");
+			value = strtok(NULL, " ");
 			break;
 		}
-		count++;
+		else
+			count++;;
 	}
 
 	return (value);

@@ -16,16 +16,16 @@ int main(int ac, char **argv)
 		dprintf(2, "Usage: %s environment_variable_name\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
-	value = _getenv("PWD");
+	value = _getenv(argv[1]);
 	if (value != NULL)
-		printf("Using _getenv(): The value of the %s variable is: %s\n", argv[1], value);
+		printf("Using _getenv(): The value of the %s variable is: %s\n\n", argv[1], value);
 	else
-		printf("Our environment variable is yet to be set.\n");
-	value = getenv("PWD");
+		printf("Our environment variable is yet to be set.\n\n");
+	value = getenv(argv[1]);
 	if (value != NULL)
-		printf("Using getenv(): The value of the %s variable is: %s\n", argv[1], value);
+		printf("Using getenv(): The value of the %s variable is: %s\n\n", argv[1], value);
 	else
-		printf("Our environment variable is yet to be set.\n");
+		printf("Our environment variable is yet to be set.\n\n");
 
 	return (0);
 }
