@@ -33,5 +33,6 @@ list_t *path_lkd_ls(list_t **head);
 size_t print_list(const list_t *head);
 int _setenv(const char *name, const char *value, int overwrite);
 char **_putenv(const char *name, const char *value, int count);
+int _unsetenv(const char *var);
 
 #endif
