@@ -45,36 +45,8 @@ int _setenv(const char *name, const char *value, int overwrite)
 		else
 			count++;
 	}
-	env = malloc(sizeof(char *) * (count + 2));
-	if (env == NULL)
-	{
-		dprintf(2, "Error: Failed to allocate memory for environ double pointer.\n");
-		return (-1);
-	}
-	while (environ[counter])
-	{
-		env[counter] = environ[counter];
-		counter++;
-	}
+	environ = _putenv(name, value, count);
 
-	new_env_var = malloc(sizeof(char) * (strlen(name) + strlen(value) + 2));
-	if (new_env_var == NULL)
-	{
-		dprintf(2, "Error: Failed to allocate memory for new_env_var.\n");
-		free(env);
-		return (-1);
-	}
-	if (sprintf(new_env_var, "%s=%s", name, value) < 0)
-	{
-		dprintf(2, "Error: Failed to store using sprintf().\n");
-		free(env);
-		free(new_env_var);
-		return (-1);
-	}
-	env[count] = new_env_var;
-	env[count + 1] = NULL;
-
-	environ = env;
-	printf("This is env[%d]: %s\n\n", count, env[count]);
+	printf("This is env[%d]: %s\n\n", count, environ[count]);
 	return (0);
 }
