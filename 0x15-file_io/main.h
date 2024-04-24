@@ -54,5 +54,6 @@ int append_text_to_file(const char *filename, char *text_content);
 int copy(const char *file_from, char *file_to);
 void print_elf_header_info(Elf64_Ehdr *header);
 int main(int argc, char **argv);
+void copy_file(const char *src, const char *dest);
 
 #endif
