@@ -1,0 +1,1 @@
+The current directory holds all files required for successfull completion of hte 0x17 project from the Low level programming segment of ALX-Africa Software Engineering program.
