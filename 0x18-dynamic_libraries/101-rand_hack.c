@@ -1,3 +1,4 @@
+#include <dlfcn.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -5,14 +6,14 @@
 
 /* function pointer to the original rand & srand function */
 int (*original_rand)(void);
-int (*original_srand)(unsigned int seed);
+void (*original_srand)(unsigned int seed);
 
 /* get the pointer to the original rand & srand function */
 void __attribute__((constructor)) init(void)
 {
 	//printf("init function called\n");
-	original_rand = dlsym(RTLD_NEXT, "rand");
-	original_srand = dlsym(RTLD_NEXT, "srand");
+	original_rand = &rand;
+	original_srand = &srand;
 }
 
 /* Intercept srand with the given seed */
