@@ -1,7 +1,5 @@
 #include "lists.h"
 
-#define TRUE 1
-
 /**
  * insert_dnodeint_at_index - Adds a node at the nth index of a DLL.
  * @h: Address of the head node of the list.
@@ -12,44 +10,39 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int count;
-	dlistint_t *new_node, *helper;
+	dlistint_t *newNode, *current;
+	unsigned int i;
 
-	if (h == NULL)
+	i = 0;
+	if (idx == 0)
+		return (add_dnodeint(h, n));
+	newNode = (dlistint_t *)malloc(sizeof(dlistint_t));
+	if (newNode == NULL)
 		return (NULL);
-	count = 0;
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
+	newNode->n = n;
+	if (*h == NULL && idx != 0)
 	{
-		dprintf(2, "Error: Failed to malloc new node.\n");
+		free(newNode);
 		return (NULL);
 	}
-	new_node->n = n;
-	helper = *h;
-	while (TRUE)
+	current = *h;
+	while (i < idx - 1 && current->next != NULL)
 	{
-		if (count == idx - 1)
-		{
-			new_node->next = (*h)->next;
-			new_node->prev = (*h);
-			(*h)->next->prev = new_node;
-			(*h)->next = new_node;
-			*h = helper;
-			break;
-		}
-		if (idx == 0)
-		{
-			new_node->next = (*h);
-			new_node->prev = NULL;
-			(*h)->prev = new_node;
-			*h = new_node;
-			break;
-		}
-		count++;
-		(*h) = (*h)->next;
-		if (*h == NULL)
-			return (NULL);
+		current = current->next;
+		i++;
 	}
+	if (current == NULL)
+	{
+		free(newNode);
+		return (NULL);
+	}
+	newNode->prev = current;
+	newNode->next = current->next;
+	if (current->next != NULL)
+	{
+		current->next->prev = newNode;
+	}
+	current->next = newNode;
 
-	return (new_node);
+	return (newNode);
 }
