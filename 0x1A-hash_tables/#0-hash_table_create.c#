@@ -1,0 +1,12 @@
+#include "hash_tables.h"
+
+/**
+ * hash_table_cr
+ * @size: The size of the hash table's array of buckets/slots.
+ *
+ * Return: A pointer to the created Hash Table.
+ */
+hash_table_t *hash_table_create(unsigned long int size)
+{
+
+}
