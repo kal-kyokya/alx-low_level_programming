@@ -1,5 +1,7 @@
 #include "hash_tables.h"
 
+#define ARRAY_SIZE 18
+
 /**
  * main - Entry point to our program.
  *
@@ -8,23 +10,36 @@
 int main(void)
 {
 	hash_table_t *ht;
-	int index;
+	char *keys[ARRAY_SIZE] = {
+			  "Dj Mère",  "Dj Dem",
+			  "Alliance Soeur", "Matutina",
+			  "hetairas", "mentioner",
+			  "heliotropes", "neurospora",
+			  "depravement", "serafins",
+			  "stylist", "subgenera",
+			  "joyful", "synaphea",
+			  "redescribed", "urites",
+			  "dram", "vivency"};
 
+	char *values[ARRAY_SIZE] = {
+			  "Mère na biso", "L'homme Idéal",
+			  "Alliance Soeur", "Matutina",
+			  "hetairas", "mentioner",
+			  "heliotropes", "neurospora",
+			  "depravement", "serafins",
+			  "stylist", "subgenera",
+			  "joyful", "synaphea",
+			  "redescribed", "urites",
+			  "dram", "vivency"};
+	int count;
+
+	count = 0;
 	ht = hash_table_create(1024);
-	index = hash_table_set(ht, "Dj Dem", "L'homme Idéal");
-
-	printf("\nAdress of the Hash Table is: %p\n\n", (void *)ht);
-
-	printf("Sizeof of the Hash Table is: %lu\n\n", sizeof(ht));
-
-	printf("Sizeof of ht->size in Hash Table is: %lu\n", sizeof(ht->size));
-	printf("Value of ht->size in Hash Table is: %lu\n\n", ht->size);
-
-	printf("Sizeof of ht->array in Hash Table is: %lu\n", sizeof(ht->array));
-	printf("Value of ht->array in Hash Table is: %p\n\n", (void *)ht->array);
-
-	printf("Sizeof of ht->array[0]->key in H. Table is: %lu\n", sizeof(ht->array[0]->key));
-	printf("ht->array[%d]->key value's in H. Table: %s\n", index, ht->array[index]->key);
+	while (count < ARRAY_SIZE)
+	{
+		hash_table_set(ht, keys[count], values[count]);
+		count++;
+	}
 
 	return (EXIT_SUCCESS);
 }
