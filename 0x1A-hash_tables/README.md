@@ -7,7 +7,7 @@ General:
 ->	Allowed editors:
 	    vi, vim, emacs
 ->	All files will be compiled on Ubuntu 20.04 LTS using:
-	    gcc <options; -Wall -Werror -Wextra -pedantic -std=gnu89>
+	    gcc -Wall -Werror -Wextra -pedantic -std=gnu89
 ->	All files should end with a new line
 ->	A README.md file, at the root of the folder of the project is mandatory
 ->	Code should use the Betty style. It will be checked using:
