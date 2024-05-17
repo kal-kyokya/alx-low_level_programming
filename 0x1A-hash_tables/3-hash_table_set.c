@@ -48,7 +48,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[index] == NULL)
 		ht->array[index] = node;
 	else if (strcmp(ht->array[index]->key, key_copy) == 0)
-		ht->array[index]->key = key_copy;
+	{
+		free(ht->array[index]->value);
+		ht->array[index]->value = value_copy;
+	}
 	else
 	{
 		node->next = ht->array[index];
@@ -118,5 +121,6 @@ int _strcmp(char *s1, char *s2)
 			return (s1[l1] - s2[l1]);
 		l1++;
 	}
+
 	return (0);
 }

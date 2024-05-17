@@ -8,20 +8,20 @@
 int main(void)
 {
 	char *str;
-	unsigned long int ht_array_size;
+	unsigned long int size;
 
-	ht_array_size = 1024;
+	size = 1024;
 	str = "Dj Dem";
-	printf("'%s' at index %lu.\n\n", str, key_index((unsigned char *)str, ht_array_size));
+	printf("'%s' at index %lu.\n\n", str, key_index((unsigned char *)str, size));
 
 	str = "Dj Mère";
-	printf("'%s' at index %lu.\n\n", str, key_index((unsigned char *)str, ht_array_size));
+	printf("'%s' at index %lu.\n\n", str, key_index((unsigned char *)str, size));
 
 	str = "Alliance Soeur";
-	printf("'%s' at index %lu.\n\n", str, key_index((unsigned char *)str, ht_array_size));
+	printf("'%s' at index %lu.\n\n", str, key_index((unsigned char *)str, size));
 
 	str = "Matutina";
-	printf("'%s' at index %lu.\n\n", str, key_index((unsigned char *)str, ht_array_size));
+	printf("'%s' at index %lu.\n\n", str, key_index((unsigned char *)str, size));
 
 	return (EXIT_SUCCESS);
 }
