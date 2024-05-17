@@ -2,6 +2,7 @@
 
 int _strlen(const char *s);
 char *_strcpy(char *dest, const char *src);
+int _strcmp(char *s1, char *s2);
 
 /**
  * hash_table_set - Inserts data into a Hash table.
@@ -43,8 +44,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->value = value_copy;
 	node->next = NULL;
 
-	printf("copy: %s -- %s\n", key_copy, key);
-	printf("copy: %s -- %s\n", value_copy, value);
 	index = key_index((const unsigned char *)key, ht->size);
 	if (ht->array[index] == NULL)
 		ht->array[index] = node;
@@ -99,4 +98,25 @@ int _strlen(const char *s)
 		length++;
 
 	return (length);
+}
+
+/**
+ * _strcmp - Compares 2 strings for likeness.
+ * @s1: String 1.
+ * @s2: String 2.
+ *
+ * Return: 0 if strings are the same.
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int l1;
+
+	l1 = 0;
+	while (s1[l1] != '\0' || s2[l1] != '\0')
+	{
+		if (s1[l1] != s2[l1])
+			return (s1[l1] - s2[l1]);
+		l1++;
+	}
+	return (0);
 }
