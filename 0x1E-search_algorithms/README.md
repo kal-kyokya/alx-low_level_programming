@@ -27,12 +27,12 @@ $ gcc -Wall -pedantic -Werror -Wextra X-main.c X-problem.c -o X-output
 ```
 Where X is the problem number for files that are relevant.
 
-## :blue_book: Authors
-* **Jean-Paul KYOKYA** - [@kal-kyokya](https://github.com/kal-kyokya)
+## :blue_book: Author
+* **Jean-Paul KYOKYA** - 
 
-## :mag: License
+## :mag: GitHub account
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/kal-kyokya/alx-low_level_programming/blob/master/LICENSE.md) file for details
+[@kal-kyokya](https://github.com/kal-kyokya)
 
 
 
