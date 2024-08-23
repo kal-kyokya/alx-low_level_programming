@@ -30,10 +30,10 @@ Where X is the problem number for files that are relevant.
 ## :blue_book: Author
 * **Jean-Paul KYOKYA** - [@kal-kyokya](https://github.com/kal-kyokya)
 
-## :mag: GitHub account
-
-This project is licensed under the MIT License
-
+## :mag: Allowed editors
+```
+vi, vim, emacs
+```
 
 
 ## :mega: Acknowledgments
