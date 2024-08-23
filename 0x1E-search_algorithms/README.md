@@ -28,11 +28,11 @@ $ gcc -Wall -pedantic -Werror -Wextra X-main.c X-problem.c -o X-output
 Where X is the problem number for files that are relevant.
 
 ## :blue_book: Author
-* **Jean-Paul KYOKYA** - 
+* **Jean-Paul KYOKYA** - [@kal-kyokya](https://github.com/kal-kyokya)
 
 ## :mag: GitHub account
 
-[@kal-kyokya](https://github.com/kal-kyokya)
+This project is licensed under the MIT License
 
 
 
